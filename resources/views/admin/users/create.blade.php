@@ -1,13 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create User') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <i class="fas fa-user-plus me-2 text-blue-600"></i>{{ __('Create User') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="py-6 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 bg-gray-50">
+                    <h3 class="text-base font-semibold text-gray-900">Data User Baru</h3>
+                    <p class="text-xs text-gray-500">Lengkapi form berikut untuk menambahkan user ke sistem.</p>
+                </div>
                 <div class="p-6">
                     <form method="POST" action="{{ route('admin.users.store') }}">
                         @csrf
@@ -26,7 +30,7 @@
 
                         <div class="mb-4">
                             <x-input-label for="role" :value="__('Role')" />
-                            <select name="role" id="role" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" required>
+                            <select name="role" id="role" class="block mt-1 w-full border-gray-300 bg-white text-gray-900 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" required>
                                 <option value="admin">Admin</option>
                                 <option value="petugas">Petugas</option>
                                 <option value="owner">Owner</option>
@@ -46,9 +50,9 @@
                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         </div>
 
-                        <div class="flex items-center justify-end mt-4">
-                            <x-primary-button class="ms-4">
-                                {{ __('Create User') }}
+                        <div class="flex items-center justify-end mt-6">
+                            <x-primary-button>
+                                <i class="fas fa-save me-2"></i>{{ __('Create User') }}
                             </x-primary-button>
                         </div>
                     </form>

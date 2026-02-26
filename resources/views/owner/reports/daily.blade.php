@@ -1,21 +1,25 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Laporan Harian') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <i class="fas fa-calendar-day me-2 text-indigo-600"></i>{{ __('Laporan Harian') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-lg font-semibold">Laporan Harian - {{ $today->format('d/m/Y') }}</h3>
-                        <a href="{{ route('owner.dashboard') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                            Kembali
-                        </a>
+    <div class="py-6 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900">Laporan Harian - {{ $today->format('d/m/Y') }}</h3>
+                        <p class="text-xs text-gray-500">Ringkasan transaksi dan pendapatan parkir untuk tanggal ini.</p>
                     </div>
+                    <a href="{{ route('owner.dashboard') }}" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg text-sm shadow-sm">
+                        <i class="fas fa-arrow-left text-xs"></i>
+                        <span>Kembali</span>
+                    </a>
+                </div>
 
+                <div class="p-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                         <div class="bg-blue-100 rounded-lg p-4">
                             <div class="text-sm text-blue-600">Total Transaksi</div>
@@ -31,15 +35,15 @@
                         </div>
                     </div>
 
-                    <table class="min-w-full">
+                    <table class="min-w-full text-sm">
                         <thead>
                             <tr class="bg-gray-50">
-                                <th class="px-4 py-2 text-left">No. Tiket</th>
-                                <th class="px-4 py-2 text-left">Kendaraan</th>
-                                <th class="px-4 py-2 text-left">Area</th>
-                                <th class="px-4 py-2 text-left">Masuk</th>
-                                <th class="px-4 py-2 text-left">Keluar</th>
-                                <th class="px-4 py-2 text-right">Total</th>
+                                <th class="px-4 py-2 text-left font-medium text-gray-600">No. Tiket</th>
+                                <th class="px-4 py-2 text-left font-medium text-gray-600">Kendaraan</th>
+                                <th class="px-4 py-2 text-left font-medium text-gray-600">Area</th>
+                                <th class="px-4 py-2 text-left font-medium text-gray-600">Masuk</th>
+                                <th class="px-4 py-2 text-left font-medium text-gray-600">Keluar</th>
+                                <th class="px-4 py-2 text-right font-medium text-gray-600">Total</th>
                             </tr>
                         </thead>
                         <tbody>

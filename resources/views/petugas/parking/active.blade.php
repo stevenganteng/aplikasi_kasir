@@ -1,20 +1,24 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Active Parking') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <i class="fas fa-parking me-2 text-blue-600"></i>{{ __('Active Parking') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-lg font-semibold">Active Parking Transactions</h3>
-                        <a href="{{ route('petugas.parking.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            New Entry
-                        </a>
+    <div class="py-6 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden">
+                <div class="p-6 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900">Active Parking Transactions</h3>
+                        <p class="text-sm text-gray-500">Daftar kendaraan yang saat ini sedang parkir.</p>
                     </div>
+                    <a href="{{ route('petugas.parking.create') }}" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg text-sm shadow-sm">
+                        <i class="fas fa-plus text-xs"></i>
+                        <span>New Entry</span>
+                    </a>
+                </div>
+                <div class="p-6">
 
                     @if(session('success'))
                         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
@@ -28,7 +32,7 @@
                         </div>
                     @endif
 
-                    <table class="min-w-full divide-y divide-gray-200">
+                    <table class="min-w-full divide-y divide-gray-200 text-sm">
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Ticket</th>

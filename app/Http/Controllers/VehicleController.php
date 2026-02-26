@@ -13,7 +13,9 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $vehicles = Vehicle::latest()->paginate(10);
+        $vehicles = Vehicle::with(['transactions' => function ($query) {
+            $query->latest();
+        }])->latest()->paginate(10);
         return view('admin.vehicles.index', compact('vehicles'));
     }
 

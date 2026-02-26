@@ -1,13 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Edit Vehicle') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <i class="fas fa-car me-2 text-indigo-600"></i>{{ __('Edit Vehicle') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="py-6 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 bg-gray-50">
+                    <h3 class="text-base font-semibold text-gray-900">Perbarui Data Kendaraan</h3>
+                    <p class="text-xs text-gray-500">Edit informasi kendaraan milik pelanggan.</p>
+                </div>
                 <div class="p-6">
                     <form action="{{ route('admin.vehicles.update', $vehicle->id) }}" method="POST">
                         @csrf
@@ -21,7 +25,7 @@
 
                         <div class="mb-4">
                             <x-input-label for="type" :value="__('Type')" />
-                            <select id="type" name="type" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 rounded-md shadow-sm" required>
+                            <select id="type" name="type" class="block mt-1 w-full border-gray-300 bg-white text-gray-900 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
                                 <option value="">Select Type</option>
                                 <option value="motor" {{ $vehicle->type == 'motor' ? 'selected' : '' }}>Motorcycle</option>
                                 <option value="mobil" {{ $vehicle->type == 'mobil' ? 'selected' : '' }}>Car</option>
@@ -55,9 +59,9 @@
                             <x-input-error :messages="$errors->get('owner_phone')" class="mt-2" />
                         </div>
 
-                        <div class="flex items-center justify-end mt-4">
-                            <x-primary-button class="ml-4">
-                                {{ __('Update Vehicle') }}
+                        <div class="flex items-center justify-end mt-6">
+                            <x-primary-button>
+                                <i class="fas fa-save me-2"></i>{{ __('Update Vehicle') }}
                             </x-primary-button>
                         </div>
                     </form>

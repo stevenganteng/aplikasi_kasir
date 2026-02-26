@@ -1,13 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Edit Parking Area') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <i class="fas fa-map-marker-alt me-2 text-purple-600"></i>{{ __('Edit Parking Area') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="py-6 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 bg-gray-50">
+                    <h3 class="text-base font-semibold text-gray-900">Perbarui Area Parkir</h3>
+                    <p class="text-xs text-gray-500">Edit informasi area parkir yang sudah ada di sistem.</p>
+                </div>
                 <div class="p-6">
                     <form action="{{ route('admin.parking-areas.update', $parkingArea->id) }}" method="POST">
                         @csrf
@@ -40,13 +44,13 @@
                         <div class="mb-4">
                             <label class="inline-flex items-center">
                                 <input type="checkbox" name="is_active" value="1" {{ $parkingArea->is_active ? 'checked' : '' }} class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Active') }}</span>
+                                <span class="ml-2 text-sm text-gray-600">{{ __('Active') }}</span>
                             </label>
                         </div>
 
-                        <div class="flex items-center justify-end mt-4">
-                            <x-primary-button class="ml-4">
-                                {{ __('Update Parking Area') }}
+                        <div class="flex items-center justify-end mt-6">
+                            <x-primary-button>
+                                <i class="fas fa-save me-2"></i>{{ __('Update Parking Area') }}
                             </x-primary-button>
                         </div>
                     </form>

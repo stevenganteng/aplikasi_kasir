@@ -1,15 +1,39 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold text-white leading-tight">
-            <i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard
-        </h2>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-white text-lg"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-white leading-tight">Admin Dashboard</h2>
+                    <p class="text-blue-200 text-xs">GrandBatam Parking System</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-2 text-white/80 text-sm">
+                <i class="fas fa-user-circle"></i>
+                <span>{{ Auth::user()->name }}</span>
+            </div>
+        </div>
     </x-slot>
 
     <div class="py-6 px-4">
         <!-- Welcome Banner -->
-        <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg mb-6 p-6">
-            <h1 class="text-2xl font-bold text-white">Welcome, {{ Auth::user()->name }}!</h1>
-            <p class="text-blue-100 mt-1">Kelola sistem parking Anda dari sini</p>
+        <div class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 rounded-2xl shadow-xl mb-6 p-6 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-12 -mb-12"></div>
+            <div class="relative z-10">
+                <h1 class="text-3xl font-bold text-white">Halo, {{ Auth::user()->name }}! 👋</h1>
+                <p class="text-blue-100 mt-2 text-lg">Selamat datang di dashboard admin</p>
+                <div class="flex gap-4 mt-4">
+                    <span class="inline-flex items-center px-3 py-1 bg-white/20 rounded-full text-sm text-white">
+                        <i class="fas fa-calendar-alt mr-2"></i>{{ now()->format('d F Y') }}
+                    </span>
+                    <span class="inline-flex items-center px-3 py-1 bg-white/20 rounded-full text-sm text-white">
+                        <i class="fas fa-clock mr-2"></i>{{ now()->format('H:i') }} WIT
+                    </span>
+                </div>
+            </div>
         </div>
 
         <!-- Stats Grid -->
